@@ -5,6 +5,8 @@ services:
     build: './'
     volumes:
       - "./:/app"
+    depends_on:
+      - rabbitmq
   rabbitmq:
     image: rabbitmq:3-management-alpine
     container_name: 'rabbitmq'

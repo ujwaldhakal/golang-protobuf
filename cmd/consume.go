@@ -18,7 +18,7 @@ var consume = &cobra.Command{
 	Short: "Try and possibly fail at something",
 	Run: func(cmd *cobra.Command, args []string) {
 
-		msgs := rabbitmq.ConsumerClient()
+		msgs := rabbitmq.ConsumerClient("UserRegistered")
 
 		forever := make(chan bool)
 

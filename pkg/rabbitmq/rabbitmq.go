@@ -48,12 +48,12 @@ func Publish(queueName string, message []byte) {
 }
 
 
-func ConsumerClient() <- chan amqp.Delivery {
+func ConsumerClient(queueName string) <- chan amqp.Delivery {
 	connection := getConnection()
 	ch, _ := connection.Channel()
 
 	msgs, _ := ch.Consume(
-		"UserRegistered", // queue
+		queueName, // queue
 		"",     // consumer
 		true,   // auto-ack
 		false,  // exclusive
