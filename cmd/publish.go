@@ -20,15 +20,14 @@ var publish = &cobra.Command{
 
 		data := proto.UserRegistered{
 			UserId: 1,
-			Email: "johndoe@example.com",
+			Email:  "johndoe@example.com",
 		}
 
-		encodedData,err := json.Marshal(data)
+		encodedData, err := json.Marshal(data)
 		if err != nil {
 			log.Fatal("error encoding to json")
 		}
-		rabbitmq.Publish("UserRegistered",encodedData)
+		rabbitmq.Publish("UserRegistered", encodedData)
 		fmt.Println("Data has been published")
 	},
 }
-

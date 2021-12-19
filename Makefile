@@ -6,6 +6,9 @@ publish:
 consume:
 	docker-compose run app go run main.go consume
 
+format:
+	gofmt -s -w .
+
 build-proto:
 	 protoc \
 	  -I . \

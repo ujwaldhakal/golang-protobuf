@@ -18,7 +18,6 @@ func failOnError(err error, msg string) {
 	}
 }
 
-
 func Publish(queueName string, message []byte) {
 	connection := getConnection()
 	ch, err := connection.Channel()
@@ -26,11 +25,11 @@ func Publish(queueName string, message []byte) {
 
 	q, err := ch.QueueDeclare(
 		queueName, // name
-		false,   // durable
-		false,   // delete when unused
-		false,   // exclusive
-		false,   // no-wait
-		nil,     // arguments
+		false,     // durable
+		false,     // delete when unused
+		false,     // exclusive
+		false,     // no-wait
+		nil,       // arguments
 	)
 	failOnError(err, "Failed to declare a queue")
 
@@ -39,7 +38,7 @@ func Publish(queueName string, message []byte) {
 		q.Name, // routing key
 		false,  // mandatory
 		false,  // immediate
-		amqp.Publishing {
+		amqp.Publishing{
 			ContentType: "text/json",
 			Body:        message,
 		})
@@ -47,19 +46,18 @@ func Publish(queueName string, message []byte) {
 	defer ch.Close()
 }
 
-
-func ConsumerClient(queueName string) <- chan amqp.Delivery {
+func ConsumerClient(queueName string) <-chan amqp.Delivery {
 	connection := getConnection()
 	ch, _ := connection.Channel()
 
 	msgs, _ := ch.Consume(
 		queueName, // queue
-		"",     // consumer
-		true,   // auto-ack
-		false,  // exclusive
-		false,  // no-local
-		false,  // no-wait
-		nil,    // args
+		"",        // consumer
+		true,      // auto-ack
+		false,     // exclusive
+		false,     // no-local
+		false,     // no-wait
+		nil,       // args
 	)
 	return msgs
 }

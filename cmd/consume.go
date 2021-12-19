@@ -27,16 +27,16 @@ var consume = &cobra.Command{
 
 				jsonMap := &v1.UserRegistered{}
 
-				 err := json.Unmarshal(d.Body, jsonMap)
-				 if err != nil {
-					 fmt.Println("error decoding json")
-				 }
+				err := json.Unmarshal(d.Body, jsonMap)
+				if err != nil {
+					fmt.Println("error decoding json")
+				}
 
-				 errors := validateMessage(jsonMap)
+				errors := validateMessage(jsonMap)
 
-				 if errors != nil {
-					 log.Fatalf("UserRegistered-validation-error: ",errors)
-				 }
+				if errors != nil {
+					log.Fatalf("UserRegistered-validation-error: ", errors)
+				}
 
 				fmt.Println(jsonMap)
 			}
@@ -45,7 +45,6 @@ var consume = &cobra.Command{
 		log.Printf(" [*] Waiting for messages. To exit press CTRL+C")
 		<-forever
 	},
-
 }
 
 func validateMessage(eventPayload *v1.UserRegistered) error {
