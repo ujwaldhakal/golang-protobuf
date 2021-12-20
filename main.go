@@ -1,8 +1,8 @@
 package main
 
-import "github.com/ujwaldhakal/golang-protobuf/cmd"
+import "fmt"
 
 func main() {
 
-	cmd.Execute()
+	fmt.Println("Hello world")
 }

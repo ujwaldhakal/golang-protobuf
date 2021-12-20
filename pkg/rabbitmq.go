@@ -1,4 +1,4 @@
-package rabbitmq
+package pkg
 
 import (
 	"github.com/streadway/amqp"
@@ -42,7 +42,7 @@ func Publish(queueName string, message []byte) {
 			ContentType: "text/json",
 			Body:        message,
 		})
-	failOnError(err, "Failed to publish a message")
+	failOnError(err, "Failed to publish a messages")
 	defer ch.Close()
 }
 

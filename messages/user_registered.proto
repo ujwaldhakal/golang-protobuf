@@ -1,11 +1,11 @@
 syntax="proto3";
 
-option go_package = "proto/v1";
+option go_package = "/proto";
 
 
 import "validate/validate.proto";
 
 message UserRegistered {
-  int32 userId = 1;
+  int32 userId = 1 [(validate.rules).int32.gte = 0];
   string email = 2 [(validate.rules).string = {min_len: 1}];
 }

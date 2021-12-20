@@ -5,7 +5,8 @@ This example demonstrates on how to use [Protobuf](https://developers.google.com
 
 ### Installation 
 * Clone this repo
-* Run `make build-proto` to generate the proto files.
+* Run `make start` to initialize the docker containers
+* Run `make build-proto` to convert the proto files into auto generated code.
 * Run `make publish` to publish queue on rabbitmq
 * Run `make consume` to consume queue
 
