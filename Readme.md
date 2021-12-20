@@ -1,6 +1,6 @@
 ## Use Protobuf with Go
 
-This example demonstrates on how to use [Protobuf](https://developers.google.com/protocol-buffers) with Go.
+This example demonstrates on how to use [Protobuf](https://developers.google.com/protocol-buffers) with Go. Visit [this link](https://ujwaldhakal.medium.com/how-to-use-protobuf-on-go-5970f950dbc6) to read more in detail
 
 
 ### Installation 
