@@ -18,7 +18,3 @@ build-proto:
 	  --go_out=":messages" \
 	  --validate_out="lang=go:messages" \
 	  	messages/*.proto
-
-
-asd:
-	 docker-compose run protoc-compiler
