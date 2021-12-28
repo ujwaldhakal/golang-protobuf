@@ -21,16 +21,18 @@ func main()  {
 
 			err := json.Unmarshal(d.Body, jsonMap)
 			if err != nil {
-				fmt.Println("error decoding json")
+				fmt.Println("Error decoding json",err)
+				continue;
 			}
 
 			errors := validateMessage(jsonMap)
 
 			if errors != nil {
-				log.Fatalf("UserRegistered-validation-error: ", errors)
+				fmt.Println("UserRegistered-validation-error: ", errors)
+				continue;
 			}
 
-			fmt.Println(jsonMap)
+			fmt.Println("data consumed",jsonMap)
 		}
 	}()
 
